@@ -1,16 +1,15 @@
-# vwa_grading
+# VWA Beurteilung
 
-A new Flutter project.
+![Banner](assets/banner.png)
 
-## Getting Started
+Dieses Programm ermöglicht es in Österreich geschrieben VWAs
+zu benoten und ein PDF mit den eingegeben Werten und dem daraus
+folgendem Kalkül zu erstellen.
 
-This project is a starting point for a Flutter application.
+## Installieren
 
-A few resources to get you started if this is your first Flutter project:
+Man kann entweder eine vorgefertigte Binary Datei herunterladen von
+der [Release Seite][release-page] oder den Source Code herunterladen
+und selbst kompilieren.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+[release-page]: "../../releases"
