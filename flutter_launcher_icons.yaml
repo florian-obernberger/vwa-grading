@@ -1,0 +1,16 @@
+flutter_icons:
+  image_path_android: "assets/icons/icon-1024x1024.png"
+  monochrome_icon: "assets/icons/monochrome.png"
+  android: true
+  adaptive_icon_background: "assets/icons/adaptive-background.png"
+  adaptive_icon_foreground: "assets/icons/adaptive-foreground.png"
+  min_sdk_android: 21
+  web:
+    generate: true
+    image_path: "assets/icons/icon-1024x1024-rounded.png"
+    background_color: "#FEFBFF"
+    theme_color: "#3B5BA9"
+  windows:
+    generate: true
+    image_path: "assets/icons/icon-1024x1024-rounded.png"
+    icon_size: 128

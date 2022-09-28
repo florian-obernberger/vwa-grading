@@ -1,0 +1,44 @@
+name: vwa_grading
+description: A tool to grade VWA written in Dachsberg.
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.18.0 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+  url_launcher: ^6.1.5
+  google_fonts: ^3.0.1
+  flutter_svg: ^1.1.5
+  shared_preferences: ^2.0.15
+  prefnotifiers: ^1.0.8+1
+  toml: ^0.13.1
+  pdf: ^3.8.3
+  intl: ^0.17.0
+  quiver: ^3.1.0
+  fluttertoast: ^8.0.9
+  file_picker: ^5.2.0+1
+  path: ^1.8.2
+  download: ^0.0.1+1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  build_runner: ^2.0.0
+  flutter_launcher_icons: ^0.10.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/fonts/
+    - assets/google-fonts/
+    - assets/logo.svg
+    - assets/logo-dark.svg
+    - assets/questions.toml
