@@ -16,21 +16,22 @@ format:
 	@echo "╠ Formatting the code..."
 	@dart format .
 
-web: | clean
+web:
 	@echo "╠ Building web bundle..."
-	@flutter build web --web-renderer html --profile --source-maps
+	@flutter build web --web-renderer html
 
-appimage: | clean
+appimage:
 	@echo "╠ Building AppImage..."
 	@flutter build linux --release
+	@rm -rf VwaGrading.AppDir/lib/ VwaGrading.AppDir/data/ VwaGrading.AppDir/vwa_grading VwaGrading.AppImage
 	@cp -r build/linux/x64/release/bundle/* VwaGrading.AppDir
 	@cp assets/icons/icon-1024x1024-squircle.png VwaGrading.AppDir/logo.png
 	@appimagetool.AppImage VwaGrading.AppDir/ build/linux/x64/release/VwaGrading.AppImage
 
-split-apk: | clean
+split-apk:
 	@echo "╠ Building Split APK..."
 	@flutter build apk --split-per-abi
 
-bundle: | clean
+bundle:
 	@echo "╠ Building bundle..."
 	@flutter build bundle
