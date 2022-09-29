@@ -12,4 +12,4 @@ Man kann entweder eine vorgefertigte Binary Datei herunterladen von
 der [Release Seite][release-page] oder den Source Code herunterladen
 und selbst kompilieren.
 
-[release-page]: "../../releases"
+[release-page]: ../../releases
