@@ -42,3 +42,8 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# This is generated on build, no need to include it in the repo
+VwaGrading.AppDir/lib/
+VwaGrading.AppDir/data/
+VwaGrading.AppDir/vwa_grading
