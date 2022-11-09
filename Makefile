@@ -38,6 +38,12 @@ split-apk:
 	@echo "╠ Building Split APK..."
 	@flutter build apk --split-per-abi
 
+apk:
+	@echo "╠ Building APK..."
+	@flutter build apk
+
 bundle:
 	@echo "╠ Building bundle..."
 	@flutter build bundle
+
+release: clean update webbundle appimage
