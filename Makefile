@@ -22,7 +22,7 @@ web:
 
 webbundle: | web
 	@echo "╠ Creating web bundle..."
-	@mkdir -p build/release/
+	@mkdir -rp build/release/
 	@zip -j build/release/webrelease.zip build/web/*
 
 appimage:
