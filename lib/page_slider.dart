@@ -160,6 +160,10 @@ class _PageSliderState extends State<PageSlider> {
       scrolledUnderElevation: isMobile ? 2 : 0,
       actions: [
         TextButton(
+          style: TextButton.styleFrom(
+            minimumSize: const Size(48, 48),
+            padding: const EdgeInsets.only(left: 16, right: 16),
+          ),
           onPressed: () async {
             final res = await importToml();
 
@@ -234,10 +238,9 @@ class _PageSliderState extends State<PageSlider> {
           },
           icon: const Text("Exportieren"),
           label: const Icon(Icons.arrow_drop_down),
-          style: const ButtonStyle(
-            padding: MaterialStatePropertyAll<EdgeInsets>(
-              EdgeInsets.only(left: 24, right: 16),
-            ),
+          style: OutlinedButton.styleFrom(
+            minimumSize: const Size(48, 48),
+            padding: const EdgeInsets.only(left: 24, right: 16),
           ),
         ),
         IconButton(
