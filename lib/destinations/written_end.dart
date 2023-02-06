@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:vwa_grading/data/toast_messages.dart';
-import 'package:vwa_grading/m3/toast.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:vwa_grading/destinations/destinations_mixin.dart';
 
 import 'package:vwa_grading/data/export/export_stub.dart'
@@ -23,9 +21,6 @@ class EndWrittenPart extends StatelessWidget with PageSliderDestinationMixin {
 
   @override
   Widget build(BuildContext context) {
-    final fToast = FToast();
-    fToast.init(context);
-
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
 
@@ -65,12 +60,13 @@ class EndWrittenPart extends StatelessWidget with PageSliderDestinationMixin {
                 children: [
                   FilledButton.icon(
                     onPressed: () => exportToml().then(
-                      (_) => fToast.showToast(
-                        child: const M3Toast(
-                          content: ToastMessages.savedChanges,
+                      (_) => ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          duration: Duration(seconds: 2),
+                          dismissDirection: DismissDirection.horizontal,
+                          margin: EdgeInsets.fromLTRB(24, 8, 24, 18),
+                          content: Text(ToastMessages.savedChanges),
                         ),
-                        gravity: ToastGravity.BOTTOM,
-                        toastDuration: const Duration(seconds: 4),
                       ),
                     ),
                     icon: const Icon(Icons.save_outlined),
@@ -102,12 +98,13 @@ class EndWrittenPart extends StatelessWidget with PageSliderDestinationMixin {
                       if (withKalkul == null) return;
 
                       exportPdf(VWAExportType.pdfWritten, withKalkul).then(
-                        (_) => fToast.showToast(
-                          child: const M3Toast(
-                            content: ToastMessages.exportedPdf,
+                        (_) => ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            duration: Duration(seconds: 2),
+                            dismissDirection: DismissDirection.horizontal,
+                            margin: EdgeInsets.fromLTRB(24, 8, 24, 18),
+                            content: Text(ToastMessages.exportedPdf),
                           ),
-                          gravity: ToastGravity.BOTTOM,
-                          toastDuration: const Duration(seconds: 4),
                         ),
                       );
                     },

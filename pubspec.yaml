@@ -14,15 +14,16 @@ dependencies:
 
   cupertino_icons: ^1.0.2
   url_launcher: ^6.1.5
-  google_fonts: ^3.0.1
+  google_fonts: ^4.0.3
   flutter_svg: ^1.1.5
   shared_preferences: ^2.0.15
-  prefnotifiers: ^1.0.8+1
+  prefnotifiers:
+    git: https://codeberg.org/florian-obernberger/flutter-prefnotifiers.git
   toml: ^0.13.1
   pdf: ^3.8.3
   intl: ^0.17.0
   quiver: ^3.1.0
-  fluttertoast: ^8.0.9
+  # fluttertoast: ^8.0.9
   file_picker: ^5.2.0+1
   path: ^1.8.2
   download: ^0.0.1+1

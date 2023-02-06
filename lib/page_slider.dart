@@ -3,14 +3,12 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:vwa_grading/data/toast_messages.dart';
 import 'package:vwa_grading/destinations/section.dart';
 import 'package:vwa_grading/destinations/written_end.dart';
-import 'package:vwa_grading/m3/toast.dart';
 import 'package:vwa_grading/pdf/vwa_beurteilungsraster.dart';
 import 'package:vwa_grading/state-management/preferences.dart';
 import 'package:vwa_grading/destinations/destinations_mixin.dart';
 import 'package:vwa_grading/destinations/general_info.dart';
 import 'package:vwa_grading/m3/drawer/drawer.dart';
 import 'package:vwa_grading/state-management/vwa_data.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
 import 'package:vwa_grading/data/export/export_stub.dart'
     if (dart.library.io) 'package:vwa_grading/data/export/export.dart'
@@ -26,7 +24,6 @@ class PageSlider extends StatefulWidget {
 }
 
 class _PageSliderState extends State<PageSlider> {
-  late FToast _fToast;
   late List<PageSliderDestinationMixin> _pages;
   late final List<StandardDrawerItem> _drawerItems;
   late final List<PopupMenuItem<VWAExportType>> _exportItems;
@@ -68,9 +65,6 @@ class _PageSliderState extends State<PageSlider> {
         child: Text("Zwischenspeichern (VWA)"),
       ),
     ];
-
-    _fToast = FToast();
-    _fToast.init(context);
   }
 
   void _updatePages() {
@@ -211,6 +205,7 @@ class _PageSliderState extends State<PageSlider> {
                 (_) => _showToast(ToastMessages.savedChanges),
               );
             } else {
+              // ignore: use_build_context_synchronously
               final withKalkul = await showDialog<bool>(
                 context: context,
                 barrierDismissible: false,
@@ -443,10 +438,13 @@ class _PageSliderState extends State<PageSlider> {
   }
 
   void _showToast(String content) {
-    _fToast.showToast(
-      child: M3Toast(content: content),
-      gravity: ToastGravity.BOTTOM,
-      toastDuration: const Duration(seconds: 4),
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        duration: const Duration(seconds: 2),
+        dismissDirection: DismissDirection.horizontal,
+        margin: const EdgeInsets.fromLTRB(24, 8, 24, 18),
+        content: Text(content),
+      ),
     );
   }
 }
