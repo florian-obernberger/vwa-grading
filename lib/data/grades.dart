@@ -2,7 +2,7 @@ import 'package:vwa_grading/data/vwa/general_info.dart';
 import 'package:vwa_grading/data/vwa/section.dart';
 import 'package:vwa_grading/extensions/list.dart';
 import 'package:vwa_grading/extensions/zip.dart';
-import 'package:vwa_grading/state-management/vwa_data.dart';
+// import 'package:vwa_grading/state-management/vwa_data.dart';
 
 /// ## Grade overview
 ///
