@@ -130,6 +130,16 @@ class VWAApp extends StatelessWidget {
           borderRadius: BorderRadius.circular(4),
         ),
       ),
+      snackBarTheme: SnackBarThemeData(
+        backgroundColor: scheme.inverseSurface,
+        actionTextColor: scheme.inversePrimary,
+        contentTextStyle: textTheme.bodyMedium?.copyWith(
+          color: scheme.onInverseSurface,
+        ),
+        behavior: SnackBarBehavior.floating,
+        elevation: 1,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      ),
     );
   }
 }
