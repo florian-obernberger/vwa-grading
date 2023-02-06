@@ -18,7 +18,7 @@ format:
 
 web:
 	@echo "╠ Building web..."
-	@flutter build web --web-renderer html
+	@flutter build web --web-renderer html --no-tree-shake-icons
 
 webbundle: | web
 	@echo "╠ Creating web bundle..."
@@ -27,7 +27,7 @@ webbundle: | web
 
 appimage:
 	@echo "╠ Building AppImage..."
-	@flutter build linux --release
+	@flutter build linux --release --no-tree-shake-icons
 	@rm -rf VwaGrading.AppDir/lib/ VwaGrading.AppDir/data/ VwaGrading.AppDir/vwa_grading build/release/VwaGrading.AppImage
 	@cp -r build/linux/x64/release/bundle/* VwaGrading.AppDir
 	@cp assets/icons/icon-1024x1024-squircle.png VwaGrading.AppDir/logo.png
@@ -36,14 +36,14 @@ appimage:
 
 split-apk:
 	@echo "╠ Building Split APK..."
-	@flutter build apk --split-per-abi
+	@flutter build apk --split-per-abi --no-tree-shake-icons
 
 apk:
 	@echo "╠ Building APK..."
-	@flutter build apk
+	@flutter build apk --no-tree-shake-icons
 
 bundle:
 	@echo "╠ Building bundle..."
-	@flutter build bundle
+	@flutter build bundle --no-tree-shake-icons
 
 release: clean update webbundle appimage
