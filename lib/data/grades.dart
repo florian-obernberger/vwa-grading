@@ -41,7 +41,7 @@ double calculateWrittenSectionsGroupKalkul(
     (e) => calculateSectionKalkul(e),
   );
 
-  if (sectionGrades.contains(5)) return 5;
+  if (sectionGrades.any((e) => e >= 4.5)) return 5;
 
   if (isMainDate) {
     return [
@@ -51,7 +51,7 @@ double calculateWrittenSectionsGroupKalkul(
 
   // TODO: Make adaptable and not static
   final grades = sectionGrades.toList();
-  return grades[1] * 0.4 + grades[2] * 0.2 + grades[3] * 0.2 + grades[3] * 0.2;
+  return grades[1] * 0.4 + grades[2] * 0.2 + grades[3] * 0.2 + grades[4] * 0.2;
 }
 
 double calculateSpokenSectionsGroupKalkul(
@@ -65,7 +65,7 @@ double calculateSpokenSectionsGroupKalkul(
     (e) => calculateSectionKalkul(e),
   );
 
-  if (weights.any((e) => e >= 4.5)) return 5;
+  if (sectionGrades.any((e) => e >= 4.5)) return 5;
 
   return [
     for (var entry in zip2(sectionGrades, weights)) entry.item1 * entry.item2
@@ -85,5 +85,10 @@ double calculateKalkul(QuestionsData questions, GeneralInfoData generalInfo) {
 
   if (writtenKalkul == 5 || spokenKalkul == 5) return 5;
 
-  return writtenKalkul * 0.7 + spokenKalkul * 0.3;
+  if (spokenKalkul.isNaN) {
+    //might have written part only
+    return writtenKalkul;
+  } else {
+    return writtenKalkul * 0.7 + spokenKalkul * 0.3;
+  }
 }
